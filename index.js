@@ -15,9 +15,11 @@ function gamePlay(name1, name2) {
   let activePlayer = player1;
 
   const playRound = (index) => {
+    activePlayer.shots.push(index);
     gameBoard[index] = activePlayer.marker;
     activePlayer === player1 ? activePlayer = player2 : activePlayer = player1;
-    return gameBoard;    
+    
+    return { gameBoard, activePlayer };    
   }
 
   return { gameBoard, playRound, activePlayer };
