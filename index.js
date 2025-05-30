@@ -38,7 +38,9 @@ function checkWinner(array, object) {
       array[4] === object.marker &&
       array[6] === object.marker)
   ) {
-    console.log(`The winner is: ${object.name}!!`);
+    return true;
+  } else {
+    return false;
   }
 }
 
@@ -56,21 +58,22 @@ function gamePlay(name1, name2) {
       activePlayer === player1
         ? (activePlayer = player2)
         : (activePlayer = player1);
-    }
-    else{
-        // KOD DO RESETU LUB REWANZU
+    } else {
+      // KOD DO RESETU LUB REWANZU
+      console.log(`The winner is ${activePlayer.name}!!`);
     }
 
-    return { gameBoard};
+    return { gameBoard };
   };
 
   return { gameBoard, playRound, activePlayer };
 }
 
-const game = gamePlay("BB", "cc");
+const game = gamePlay("Bartonili", "Rival");
 
-console.log(game.playRound(0));
 console.log(game.playRound(8));
-console.log(game.playRound(1));
+console.log(game.playRound(0));
 console.log(game.playRound(7));
+console.log(game.playRound(1));
+console.log(game.playRound(3));
 console.log(game.playRound(2));
