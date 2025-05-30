@@ -3,19 +3,34 @@ function createPlayer(name, marker) {
   return { name, marker, shots };
 }
 
-function gameBoard() {
+function createBoard() {
   const gameBoard = [null, null, null, null, null, null, null, null, null];
   return gameBoard;
 }
 
 function gamePlay(name1, name2) {
-  const board = gameBoard();
+  const gameBoard = createBoard();
   const players = [null, null];
-  const player1 = createPlayer(name1, "o");
-  const player2 = createPlayer(name2, "x");
+  let player1 = createPlayer(name1, "o");
+  let player2 = createPlayer(name2, "x");
   players[0] = player1;
   players[1] = player2;
-  return { players, board };
+  let activePlayer = player1;
+
+  const playRound = () => {
+     
+    activePlayer === player1 ? activePlayer = player2 : activePlayer = player1;
+    return activePlayer.marker;
+    
+  }
+
+  return { playRound, activePlayer };
 }
 
-console.log(gamePlay("BB", "cc"));
+const game = gamePlay("BB", "cc");
+
+console.log(game.activePlayer.marker);
+console.log(game.playRound());
+console.log(game.playRound());
+console.log(game.playRound());
+console.log(game.playRound());
