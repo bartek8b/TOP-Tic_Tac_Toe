@@ -19,9 +19,6 @@ function checkWinner(array, object) {
     (array[6] === object.marker &&
       array[7] === object.marker &&
       array[8] === object.marker) ||
-    (array[6] === object.marker &&
-      array[7] === object.marker &&
-      array[8] === object.marker) ||
     (array[0] === object.marker &&
       array[3] === object.marker &&
       array[6] === object.marker) ||
@@ -60,7 +57,7 @@ function gamePlay(name1, name2) {
         : (activePlayer = player1);
     } else {
       // KOD DO RESETU LUB REWANZU
-      console.log(`The winner is ${activePlayer.name}!!`);
+      console.log(`The winner is ${activePlayer.name}!!`);      
     }
 
     return { gameBoard };
