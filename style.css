@@ -13,15 +13,15 @@ body {
   --fontColor: hsl(0, 0%, 15%);
 }
 @font-face {
-    font-family: 'playgrum';
-    src: url(font/playgum.regular.otf);
+  font-family: "playgrum";
+  src: url(font/playgum.regular.otf);
 }
 @font-face {
-    font-family: 'waytoon';
-    src: url(font/waytoon.regular.otf);
+  font-family: "waytoon";
+  src: url(font/waytoon.regular.otf);
 }
 
-.container {    
+.container {
   min-width: inherit;
   min-height: inherit;
   display: flex;
@@ -34,6 +34,24 @@ body {
   font-size: calc(1.5rem + 1.5dvw);
   /* font-weight: bold; */
   font-family: playgrum;
+  span {
+    font-size: calc(1rem + 1.5dvw);
+  }
+  button {
+    background: transparent;
+    border: 1px solid var(--fontColor);
+    border-radius: 4px;
+    color: var(--fontColor);
+    font-size: calc(1rem + 1dvw);
+    margin: 8px;
+    padding: 8px;
+    cursor: pointer;
+    width: fit-content;
+    aspect-ratio: 10 / 1;
+    &:hover {
+      outline: 2px solid var(--fontColor);
+    }
+  }
 }
 .container > footer {
   text-align: right;
@@ -46,7 +64,7 @@ body {
 }
 .container > .grid-container {
   aspect-ratio: 1 / 1;
-  height: min(70dvh, 85dvw);
+  height: min(60dvh, 85dvw);
   width: auto;
   align-self: center;
   display: grid;
@@ -59,16 +77,16 @@ body {
     border-radius: 4px;
     color: var(--fontColor);
     font-family: waytoon;
-    font-size: calc(2rem + 2dvw);
+    font-size: calc(4rem + 2dvw);
     display: flex;
     justify-content: center;
     align-items: center;
     background: transparent;
     cursor: pointer;
     &:hover {
-      border: 2px solid var(--fontColor);
+      outline: 2px solid var(--fontColor);
     }
     /* transform: translateY(50%);
     opacity: 0; */
-  };
+  }
 }
