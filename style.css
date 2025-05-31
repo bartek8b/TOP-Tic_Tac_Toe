@@ -12,8 +12,16 @@ body {
   --accentLight: hsl(120, 73%, 75%);
   --fontColor: hsl(0, 0%, 15%);
 }
+@font-face {
+    font-family: 'playgrum';
+    src: url(font/playgum.regular.otf);
+}
+@font-face {
+    font-family: 'waytoon';
+    src: url(font/waytoon.regular.otf);
+}
 
-.container {
+.container {    
   min-width: inherit;
   min-height: inherit;
   display: flex;
@@ -23,8 +31,9 @@ body {
 .container > header {
   text-align: center;
   padding: 3dvh;
-  font-size: calc(1rem + 1.5dvw);
-  font-weight: bold;
+  font-size: calc(1.5rem + 1.5dvw);
+  /* font-weight: bold; */
+  font-family: playgrum;
 }
 .container > footer {
   text-align: right;
@@ -48,6 +57,9 @@ body {
   button {
     border: 1px solid var(--fontColor);
     border-radius: 4px;
+    color: var(--fontColor);
+    font-family: waytoon;
+    font-size: calc(2rem + 2dvw);
     display: flex;
     justify-content: center;
     align-items: center;
