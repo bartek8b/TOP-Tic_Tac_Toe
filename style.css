@@ -1,10 +1,11 @@
 body {
   min-height: 100dvh;
   min-width: 100%;
-  overflow: hidden;
   background: radial-gradient(ellipse at bottom, var(--accentDark), transparent),
     radial-gradient(ellipse, var(--accentLight), transparent);
+  background-attachment: fixed;
   color: var(--fontColor);
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -78,6 +79,7 @@ body {
     color: var(--fontColor);
     font-family: waytoon;
     font-size: calc(4rem + 2dvw);
+    aspect-ratio: 1 / 1;
     display: flex;
     justify-content: center;
     align-items: center;
