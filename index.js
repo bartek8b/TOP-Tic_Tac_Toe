@@ -52,12 +52,16 @@ function gamePlay(name1, name2) {
     gameBoard[index] = activePlayer.marker;
     const winner = checkWinner(gameBoard, activePlayer);
     if (!winner) {
+      if(!gameBoard.includes(null)){
+        console.log(`DRAW !!`);
+        // REMIS !!!
+      }
       activePlayer === player1
         ? (activePlayer = player2)
         : (activePlayer = player1);
     } else {
-      // KOD DO RESETU LUB REWANZU
-      console.log(`The winner is ${activePlayer.name}!!`);      
+      console.log(`The winner is ${activePlayer.name}!!`); 
+      // WINNER !!!
     }
 
     return { gameBoard };
@@ -69,8 +73,11 @@ function gamePlay(name1, name2) {
 const game = gamePlay("Bartonili", "Rival");
 
 console.log(game.playRound(8));
-console.log(game.playRound(0));
-console.log(game.playRound(7));
-console.log(game.playRound(1));
-console.log(game.playRound(3));
+console.log(game.playRound(5));
 console.log(game.playRound(2));
+console.log(game.playRound(4));
+console.log(game.playRound(3));
+console.log(game.playRound(1));
+console.log(game.playRound(7));
+console.log(game.playRound(6));
+console.log(game.playRound(0));
