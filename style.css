@@ -1,0 +1,36 @@
+body {
+  min-height: 100dvh;
+  min-width: 100%;
+  background: radial-gradient(ellipse at bottom, var(--accentDark), transparent),
+    radial-gradient(ellipse, var(--accentLight), transparent);
+  color: var(--fontColor);
+}
+
+:root {
+  --accentDark: hsl(130, 73%, 25%);
+  --accentLight: hsl(120, 73%, 75%);
+  --fontColor: hsl(0, 0%, 15%);
+}
+
+.container{
+    min-width: inherit;
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container > header{
+    text-align: center;
+    padding: 3dvh;
+    font-size: calc(1rem + 1.5dvw);
+    font-weight: bold;
+}
+.container > footer{
+    text-align: right;
+    font-size: calc(1rem - .3dvh);
+    a{
+        text-decoration: none;
+        color: var(--fontColor);
+        padding-right: 1dvw;
+    }
+}
