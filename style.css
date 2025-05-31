@@ -65,13 +65,14 @@ body {
 }
 .container > .grid-container {
   aspect-ratio: 1 / 1;
-  height: min(60dvh, 85dvw);
+  height: max(fit-content, 60dvh);
   width: auto;
   align-self: center;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
+  margin-block: 3%;
   backdrop-filter: blur(50px);
   button {
     border: 1px solid var(--fontColor);
