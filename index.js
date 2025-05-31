@@ -52,15 +52,16 @@ function gamePlay(name1, name2) {
     gameBoard[index] = activePlayer.marker;
     const winner = checkWinner(gameBoard, activePlayer);
     if (!winner) {
-      if(!gameBoard.includes(null)){
+      if (!gameBoard.includes(null)) {
         console.log(`DRAW !!`);
         // REMIS !!!
+      } else {
+        activePlayer === player1
+          ? (activePlayer = player2)
+          : (activePlayer = player1);
       }
-      activePlayer === player1
-        ? (activePlayer = player2)
-        : (activePlayer = player1);
     } else {
-      console.log(`The winner is ${activePlayer.name}!!`); 
+      console.log(`The winner is ${activePlayer.name}!!`);
       // WINNER !!!
     }
 
