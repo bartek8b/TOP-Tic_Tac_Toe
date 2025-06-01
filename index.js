@@ -48,30 +48,32 @@ function gamePlay(name1, name2) {
   let activePlayer = player1;
 
   const playRound = (index) => {
-    activePlayer.shots.push(index);
-    gameBoard[index] = activePlayer.marker;
-    const winner = checkWinner(gameBoard, activePlayer);
-    if (!winner) {
-      if (!gameBoard.includes(null)) {
-        // REMIS !!!
-        console.log(`DRAW !!`);
+    if (!gameBoard[index]) {
+      activePlayer.shots.push(index);
+      gameBoard[index] = activePlayer.marker;
+      const winner = checkWinner(gameBoard, activePlayer);
+      if (!winner) {
+        if (!gameBoard.includes(null)) {
+          // REMIS !!!
+          console.log(`DRAW !!`);
+
+          //REMATCH SET
+          game = gamePlay(player2.name, player1.name);
+        } else {
+          activePlayer === player1
+            ? (activePlayer = player2)
+            : (activePlayer = player1);
+        }
+      } else {
+        // WINNER !!!
+        console.log(`The winner is ${activePlayer.name}!!`);
 
         //REMATCH SET
         game = gamePlay(player2.name, player1.name);
-      } else {
-        activePlayer === player1
-          ? (activePlayer = player2)
-          : (activePlayer = player1);
       }
-    } else {
-      // WINNER !!!
-      console.log(`The winner is ${activePlayer.name}!!`);
 
-      //REMATCH SET
-      game = gamePlay(player2.name, player1.name);
+      return { gameBoard };
     }
-
-    return { gameBoard };
   };
 
   return { playRound };
