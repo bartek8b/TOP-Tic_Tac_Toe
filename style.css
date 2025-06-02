@@ -1,17 +1,25 @@
 body {
   min-height: 100dvh;
   min-width: 100%;
-  background: radial-gradient(ellipse at bottom, var(--accentLight), transparent),
+  background: radial-gradient(
+      ellipse at bottom,
+      var(--accentLight),
+      transparent
+    ),
     radial-gradient(ellipse, var(--accentDark), transparent);
   background-attachment: fixed;
   color: var(--fontColor);
   -webkit-tap-highlight-color: transparent;
 }
-
+*::selection{
+  background-color: var(--accentDark);
+  color: var(--accentLight);
+}
 :root {
   --accentDark: hsl(130, 73%, 25%);
   --accentLight: hsl(120, 73%, 75%);
   --fontColor: hsl(0, 0%, 15%);
+  --fontSizeHeaderDialog: calc(1.2rem + 1.5dvw);
 }
 @font-face {
   font-family: "playgrum";
@@ -32,13 +40,17 @@ body {
 .container > header {
   text-align: center;
   padding: 3dvh;
-  font-size: calc(1.2rem + 1.5dvw);
-  font-family: 'playgrum';
+  font-size: var(--fontSizeHeaderDialog);
+  font-family: "playgrum";
   span {
     font-size: calc(1rem + 1.5dvw);
   }
   button {
-    background: radial-gradient(var(--accentLight), var(--accentLight),var(--accentDark));
+    background: radial-gradient(
+      var(--accentLight),
+      var(--accentLight),
+      var(--accentDark)
+    );
     border: 1px solid var(--fontColor);
     border-radius: 4px;
     color: var(--fontColor);
@@ -54,7 +66,7 @@ body {
     }
   }
 }
-#display-message{
+#display-message {
   font-size: calc(1.5rem + 1.5dvw);
 }
 .container > footer {
@@ -95,4 +107,69 @@ body {
     /* transform: translateY(50%);
     opacity: 0; */
   }
+}
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  background: linear-gradient(
+    45deg,
+    var(--accentDark),
+    var(--accentLight),
+    var(--accentDark)
+  );
+  font-family: "playgrum";
+  font-size: var(--fontSizeHeaderDialog);
+  width: min(100%, 500px);
+  border: 3px solid var(--accentDark);
+  border-radius: 16px;
+}
+dialog label {
+  font-family: "waytoon";
+  font-weight: bold;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    background: radial-gradient(
+      var(--accentLight),
+      var(--accentLight),
+      var(--accentDark)
+    );
+    border: 1px solid var(--fontColor);
+    border-radius: 8px;
+    color: var(--fontColor);
+    font-size: var(--fontSizeHeaderDialog);
+    margin-inline: 8px;
+    margin-block: 24px;
+    padding: 12px;
+    cursor: pointer;
+    width: fit-content;
+    aspect-ratio: 10 / 1;
+    &:hover {
+      outline: 2px solid var(--fontColor);
+    }
+  }
+  label {
+    font-family: "waytoon";
+    font-weight: bold;
+  }
+  input {
+    width: 80%;
+  }
+  input:focus {
+    outline: 3px solid var(--accentDark);
+  }
+}
+::backdrop {
+  background: linear-gradient(
+    var(--accentLight),
+    var(--accentLight),
+    var(--accentDark)
+  );
+  /* opacity: 0.99; */
 }

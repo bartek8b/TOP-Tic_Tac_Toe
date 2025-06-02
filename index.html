@@ -9,13 +9,12 @@
   </head>
   <body>
     <div class="container">
-      <header>O TIC TAC TOE X
-        <br>
+      <header>
+        TIC TAC TOE
+        <br />
         <button>new game</button><button>rematch</button>
-        <br>
+        <br />
         <span id="display-message">player1 vs. player2</span>
-        
-        
       </header>
       <div class="grid-container">
         <button>O</button>
@@ -37,6 +36,16 @@
         >
       </footer>
     </div>
+
+    <dialog>
+      <form method="dialog">
+        <legend>tic tac toe</legend>
+        <p><label for="player1">O : </label><input type="text" for="player1" name="player1" placeholder="enter" maxlength="12"></p>
+        <p><label for="player2">X : </label><input type="text" for="player2" name="player2" placeholder="names here" maxlength="12"></p>
+        <p><button>submit</button></p>
+      </form>
+    </dialog>
+
     <script src="index.js"></script>
   </body>
 </html>

@@ -47,6 +47,11 @@ function gamePlay(name1, name2) {
   let player2 = createPlayer(name2, "x");
   let activePlayer = player1;
 
+  const getBoard = () => [...gameBoard];
+  const getActivePlayer = () => activePlayer;
+  const getPlayer1 = () => player1;
+  const getPlayer2 = () => player2;
+
   const playRound = (index) => {
     if (!gameBoard[index]) {
       activePlayer.shots.push(index);
@@ -74,52 +79,56 @@ function gamePlay(name1, name2) {
     }
   };
 
-  const getBoard = () => [...gameBoard];
-  const getActivePlayer = () => activePlayer;
-  const getPlayer1 = () => player1;
-  const getPlayer2 = () => player2;
-
   return { playRound, getBoard, getActivePlayer, getPlayer1, getPlayer2 };
 }
 
-let game = gamePlay("Bartonili", "Rival");
 
-console.log(game.playRound(8));
-console.log(game.playRound(5));
-console.log(game.playRound(2));
-console.log(game.playRound(4));
-console.log(game.playRound(3));
-console.log(game.playRound(1));
-console.log(game.playRound(7));
-console.log(game.playRound(0));
-console.log(game.playRound(6));
 
-console.log(game.playRound(8));
-console.log(game.playRound(5));
-console.log(game.playRound(2));
-console.log(game.playRound(4));
-console.log(game.playRound(3));
-console.log(game.playRound(1));
-console.log(game.playRound(7));
-console.log(game.playRound(0));
-console.log(game.playRound(6));
+function init(){
+  const dialog = document.querySelector("dialog");
+  dialog.showModal();
+}
 
-console.log(game.playRound(8));
-console.log(game.playRound(5));
-console.log(game.playRound(2));
-console.log(game.playRound(4));
-console.log(game.playRound(3));
-console.log(game.playRound(1));
-console.log(game.playRound(7));
-console.log(game.playRound(0));
-console.log(game.playRound(6));
+init();
 
-console.log(game.playRound(8));
-console.log(game.playRound(5));
-console.log(game.playRound(2));
-console.log(game.playRound(4));
-console.log(game.playRound(3));
-console.log(game.playRound(1));
-console.log(game.playRound(7));
-console.log(game.playRound(6));
-console.log(game.playRound(0));
+// let game = gamePlay("Bartonili", "Rival");
+
+// console.log(game.playRound(8));
+// console.log(game.playRound(5));
+// console.log(game.playRound(2));
+// console.log(game.playRound(4));
+// console.log(game.playRound(3));
+// console.log(game.playRound(1));
+// console.log(game.playRound(7));
+// console.log(game.playRound(0));
+// console.log(game.playRound(6));
+
+// console.log(game.playRound(8));
+// console.log(game.playRound(5));
+// console.log(game.playRound(2));
+// console.log(game.playRound(4));
+// console.log(game.playRound(3));
+// console.log(game.playRound(1));
+// console.log(game.playRound(7));
+// console.log(game.playRound(0));
+// console.log(game.playRound(6));
+
+// console.log(game.playRound(8));
+// console.log(game.playRound(5));
+// console.log(game.playRound(2));
+// console.log(game.playRound(4));
+// console.log(game.playRound(3));
+// console.log(game.playRound(1));
+// console.log(game.playRound(7));
+// console.log(game.playRound(0));
+// console.log(game.playRound(6));
+
+// console.log(game.playRound(8));
+// console.log(game.playRound(5));
+// console.log(game.playRound(2));
+// console.log(game.playRound(4));
+// console.log(game.playRound(3));
+// console.log(game.playRound(1));
+// console.log(game.playRound(7));
+// console.log(game.playRound(6));
+// console.log(game.playRound(0));
