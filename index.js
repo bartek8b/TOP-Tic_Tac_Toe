@@ -71,12 +71,15 @@ function gamePlay(name1, name2) {
         //REMATCH SET
         game = gamePlay(player2.name, player1.name);
       }
-
-      return { gameBoard };
     }
   };
 
-  return { playRound };
+  const getBoard = () => [...gameBoard];
+  const getActivePlayer = () => activePlayer;
+  const getPlayer1 = () => player1;
+  const getPlayer2 = () => player2;
+
+  return { playRound, getBoard, getActivePlayer, getPlayer1, getPlayer2 };
 }
 
 let game = gamePlay("Bartonili", "Rival");
