@@ -82,11 +82,22 @@ function gamePlay(name1, name2) {
   return { playRound, getBoard, getActivePlayer, getPlayer1, getPlayer2 };
 }
 
-
-
-function init(){
+function init() {
   const dialog = document.querySelector("dialog");
+  const submitBtn = document.querySelector("#submit");
   dialog.showModal();
+
+  let game;
+
+  submitBtn.addEventListener("click", () => {
+    let player1 = document.querySelector('input[name="player1"]').value;
+    let player2 = document.querySelector('input[name="player2"]').value;
+    game = gamePlay(player1, player2);
+
+    //DOTAD STESTOWANY
+    console.log(game.getActivePlayer());
+    console.log(game.getPlayer2());
+  });
 }
 
 init();
