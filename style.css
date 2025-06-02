@@ -11,13 +11,13 @@ body {
   color: var(--fontColor);
   -webkit-tap-highlight-color: transparent;
 }
-*::selection{
+*::selection {
   background-color: var(--accentDark);
   color: var(--accentLight);
 }
 :root {
-  --accentDark: hsl(130, 73%, 25%);
-  --accentLight: hsl(120, 73%, 75%);
+  --accentDark: #c49c75;
+  --accentLight: #d5b998;
   --fontColor: hsl(0, 0%, 15%);
   --fontSizeHeaderDialog: calc(1.2rem + 1.5dvw);
 }
@@ -124,7 +124,7 @@ dialog {
   font-family: "playgrum";
   font-size: var(--fontSizeHeaderDialog);
   width: min(100%, 500px);
-  border: 3px solid var(--accentDark);
+  border: 3px solid var(--fontColor);
   border-radius: 16px;
 }
 dialog label {

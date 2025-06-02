@@ -1,3 +1,5 @@
+// FUNCTIONALITY
+
 function createPlayer(name, marker) {
   const shots = [];
   return { name, marker, shots };
@@ -82,6 +84,8 @@ function gamePlay(name1, name2) {
   return { playRound, getBoard, getActivePlayer, getPlayer1, getPlayer2 };
 }
 
+// INIT
+
 function init() {
   const dialog = document.querySelector("dialog");
   const submitBtn = document.querySelector("#submit");
@@ -95,10 +99,17 @@ function init() {
     game = gamePlay(player1, player2);
 
     //DOTAD STESTOWANY
+    console.log(game.getBoard());
     console.log(game.getActivePlayer());
+    console.log(game.getPlayer1());
     console.log(game.getPlayer2());
+    console.log(game.playRound);
   });
 }
+
+// UI
+
+
 
 init();
 
