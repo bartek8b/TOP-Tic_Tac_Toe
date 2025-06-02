@@ -1,8 +1,8 @@
 body {
   min-height: 100dvh;
   min-width: 100%;
-  background: radial-gradient(ellipse at bottom, var(--accentDark), transparent),
-    radial-gradient(ellipse, var(--accentLight), transparent);
+  background: radial-gradient(ellipse at bottom, var(--accentLight), transparent),
+    radial-gradient(ellipse, var(--accentDark), transparent);
   background-attachment: fixed;
   color: var(--fontColor);
   -webkit-tap-highlight-color: transparent;
@@ -33,18 +33,18 @@ body {
   text-align: center;
   padding: 3dvh;
   font-size: calc(1.5rem + 1.5dvw);
-  /* font-weight: bold; */
-  font-family: playgrum;
+  font-family: 'playgrum';
   span {
     font-size: calc(1rem + 1.5dvw);
   }
   button {
-    background: transparent;
+    background: radial-gradient(var(--accentLight), var(--accentLight),var(--accentDark));
     border: 1px solid var(--fontColor);
     border-radius: 4px;
     color: var(--fontColor);
     font-size: calc(1rem + 1dvw);
-    margin: 8px;
+    margin-inline: 8px;
+    margin-block: 24px;
     padding: 8px;
     cursor: pointer;
     width: fit-content;
@@ -53,6 +53,9 @@ body {
       outline: 2px solid var(--fontColor);
     }
   }
+}
+#display-message{
+  font-size: calc(1.5rem + 1.5dvw);
 }
 .container > footer {
   text-align: right;
@@ -75,7 +78,7 @@ body {
   margin-block: 3%;
   backdrop-filter: blur(50px);
   button {
-    border: 1px solid var(--fontColor);
+    border: 2px solid var(--fontColor);
     border-radius: 4px;
     color: var(--fontColor);
     font-family: waytoon;
