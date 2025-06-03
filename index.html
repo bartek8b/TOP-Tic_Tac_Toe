@@ -40,8 +40,8 @@
     <dialog>
       <form method="dialog">
         <legend>tic tac toe</legend>
-        <p><label for="player1">O : </label><input type="text" for="player1" name="player1" id="player1" placeholder="enter" maxlength="12"></p>
-        <p><label for="player2">X : </label><input type="text" for="player2" name="player2" id="player2" placeholder="names here" maxlength="12"></p>
+        <p><label for="player1">O : </label><input type="text" for="player1" name="player1" id="player1" placeholder="enter" maxlength="12" pattern=".*[A-Za-z].*" required></p>
+        <p><label for="player2">X : </label><input type="text" for="player2" name="player2" id="player2" placeholder="names here" maxlength="12" pattern=".*[A-Za-z].*" required></p>
         <p><button id="submit">start</button></p>
       </form>
     </dialog>

@@ -161,9 +161,12 @@ form {
   }
   input {
     width: 80%;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
   }
   input:focus {
-    outline: 3px solid var(--accentDark);
+    outline: 2px solid var(--fontColor);
   }
 }
 ::backdrop {
