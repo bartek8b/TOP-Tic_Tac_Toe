@@ -12,32 +12,53 @@ function createBoard() {
 
 function checkWinner(array, object) {
   if (
-    (array[0] === object.marker &&
-      array[1] === object.marker &&
-      array[2] === object.marker) ||
-    (array[3] === object.marker &&
-      array[4] === object.marker &&
-      array[5] === object.marker) ||
-    (array[6] === object.marker &&
-      array[7] === object.marker &&
-      array[8] === object.marker) ||
-    (array[0] === object.marker &&
-      array[3] === object.marker &&
-      array[6] === object.marker) ||
-    (array[1] === object.marker &&
-      array[4] === object.marker &&
-      array[7] === object.marker) ||
-    (array[2] === object.marker &&
-      array[5] === object.marker &&
-      array[8] === object.marker) ||
-    (array[0] === object.marker &&
-      array[4] === object.marker &&
-      array[8] === object.marker) ||
-    (array[2] === object.marker &&
-      array[4] === object.marker &&
-      array[6] === object.marker)
+    array[0] === object.marker &&
+    array[1] === object.marker &&
+    array[2] === object.marker
   ) {
-    return true;
+    return [0, 1, 2];
+  } else if (
+    array[3] === object.marker &&
+    array[4] === object.marker &&
+    array[5] === object.marker
+  ) {
+    return [3, 4, 5];
+  } else if (
+    array[6] === object.marker &&
+    array[7] === object.marker &&
+    array[8] === object.marker
+  ) {
+    return [6, 7, 8];
+  } else if (
+    array[0] === object.marker &&
+    array[3] === object.marker &&
+    array[6] === object.marker
+  ) {
+    return [0, 3, 6];
+  } else if (
+    array[1] === object.marker &&
+    array[4] === object.marker &&
+    array[7] === object.marker
+  ) {
+    return [1, 4, 7];
+  } else if (
+    array[2] === object.marker &&
+    array[5] === object.marker &&
+    array[8] === object.marker
+  ) {
+    return [2, 5, 8];
+  } else if (
+    array[0] === object.marker &&
+    array[4] === object.marker &&
+    array[8] === object.marker
+  ) {
+    return [0, 4, 8];
+  } else if (
+    array[2] === object.marker &&
+    array[4] === object.marker &&
+    array[6] === object.marker
+  ) {
+    return [2, 4, 6];
   } else {
     return false;
   }
@@ -63,9 +84,6 @@ function gamePlay(name1, name2) {
         if (!gameBoard.includes(null)) {
           // REMIS !!!
           console.log(`DRAW !!`);
-
-          //REMATCH SET
-          game = gamePlay(player2.name, player1.name);
         } else {
           activePlayer === player1
             ? (activePlayer = player2)
@@ -74,9 +92,6 @@ function gamePlay(name1, name2) {
       } else {
         // WINNER !!!
         console.log(`The winner is ${activePlayer.name}!!`);
-
-        //REMATCH SET
-        game = gamePlay(player2.name, player1.name);
       }
     }
   };
@@ -104,7 +119,7 @@ function init() {
     name2 = document.querySelector('input[name="player2"]').value;
     game = gamePlay(name1, name2);
     createGrid(9);
-    screenControler(game);
+    screenInfo(game);
   });
 
   newGameBtn.addEventListener("click", () => {
@@ -118,21 +133,23 @@ function init() {
     const rev2 = game.getPlayer2();
     game = gamePlay(rev2.name, rev1.name);
     createGrid(9);
-    screenControler(game);
+    screenInfo(game);
   });
 
-  grid.addEventListener("click", (event) => {
+  const shot = (event) => {
     const cell = event.target.closest(".available");
     const id = cell.getAttribute("data-id");
     game.playRound(id);
     cell.classList.remove("available");
     console.log(game.getBoard());
-  })
+  };
+
+  grid.addEventListener("click", shot);
 }
 
 // U I
 
-function screenControler(object) {
+function screenInfo(object) {
   const displayMsg = document.querySelector("#display-message");
   const player1 = object.getPlayer1();
   const player2 = object.getPlayer2();
@@ -152,45 +169,3 @@ function createGrid(n) {
 }
 
 init();
-
-// let game = gamePlay("Bartonili", "Rival");
-
-// console.log(game.playRound(8));
-// console.log(game.playRound(5));
-// console.log(game.playRound(2));
-// console.log(game.playRound(4));
-// console.log(game.playRound(3));
-// console.log(game.playRound(1));
-// console.log(game.playRound(7));
-// console.log(game.playRound(0));
-// console.log(game.playRound(6));
-
-// console.log(game.playRound(8));
-// console.log(game.playRound(5));
-// console.log(game.playRound(2));
-// console.log(game.playRound(4));
-// console.log(game.playRound(3));
-// console.log(game.playRound(1));
-// console.log(game.playRound(7));
-// console.log(game.playRound(0));
-// console.log(game.playRound(6));
-
-// console.log(game.playRound(8));
-// console.log(game.playRound(5));
-// console.log(game.playRound(2));
-// console.log(game.playRound(4));
-// console.log(game.playRound(3));
-// console.log(game.playRound(1));
-// console.log(game.playRound(7));
-// console.log(game.playRound(0));
-// console.log(game.playRound(6));
-
-// console.log(game.playRound(8));
-// console.log(game.playRound(5));
-// console.log(game.playRound(2));
-// console.log(game.playRound(4));
-// console.log(game.playRound(3));
-// console.log(game.playRound(1));
-// console.log(game.playRound(7));
-// console.log(game.playRound(6));
-// console.log(game.playRound(0));
