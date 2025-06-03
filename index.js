@@ -91,6 +91,7 @@ function init() {
   const submitBtn = document.querySelector("#submit");
   const newGameBtn = document.querySelector("#new-game");
   const rematchBtn = document.querySelector("#rematch");
+  const grid = document.querySelector(".grid-container");
 
   dialog.showModal();
 
@@ -107,7 +108,7 @@ function init() {
   });
 
   newGameBtn.addEventListener("click", () => {
-    init();
+    dialog.showModal();
     document.querySelector('input[name="player1"]').value = "";
     document.querySelector('input[name="player2"]').value = "";
   });
@@ -119,11 +120,19 @@ function init() {
     createGrid(9);
     screenControler(game);
   });
+
+  grid.addEventListener("click", (event) => {
+    const cell = event.target.closest(".available");
+    const id = cell.getAttribute("data-id");
+    game.playRound(id);
+    cell.classList.remove("available");
+    console.log(game.getBoard());
+  })
 }
 
-// UI
+// U I
 
-function screenControler(object){
+function screenControler(object) {
   const displayMsg = document.querySelector("#display-message");
   const player1 = object.getPlayer1();
   const player2 = object.getPlayer2();
@@ -131,13 +140,12 @@ function screenControler(object){
   displayMsg.textContent = `${player1.name} vs. ${player2.name}`;
 }
 
-function createGrid(n){
+function createGrid(n) {
   const container = document.querySelector(".grid-container");
   container.textContent = "";
-  for(let i = 0; i < n; i++){
+  for (let i = 0; i < n; i++) {
     const cell = document.createElement("button");
     cell.setAttribute("data-id", i);
-    cell.classList.add("cell");
     cell.classList.add("available");
     container.appendChild(cell);
   }
