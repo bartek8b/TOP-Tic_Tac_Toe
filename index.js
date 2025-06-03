@@ -102,6 +102,7 @@ function init() {
     name1 = document.querySelector('input[name="player1"]').value;
     name2 = document.querySelector('input[name="player2"]').value;
     game = gamePlay(name1, name2);
+    createGrid(9);
     screenControler(game);
   });
 
@@ -115,8 +116,8 @@ function init() {
     const rev1 = game.getPlayer1();
     const rev2 = game.getPlayer2();
     game = gamePlay(rev2.name, rev1.name);
+    createGrid(9);
     screenControler(game);
-    console.log(game.getActivePlayer());
   });
 }
 
@@ -128,6 +129,16 @@ function screenControler(object){
   const player2 = object.getPlayer2();
 
   displayMsg.textContent = `${player1.name} vs. ${player2.name}`;
+}
+
+function createGrid(n){
+  const container = document.querySelector(".grid-container");
+  container.textContent = "";
+  for(let i = 0; i < n; i++){
+    const cell = document.createElement("button");
+    cell.setAttribute("data-id", i);
+    container.appendChild(cell);
+  }
 }
 
 init();

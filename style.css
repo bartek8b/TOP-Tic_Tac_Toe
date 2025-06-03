@@ -36,6 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 .container > header {
   text-align: center;
@@ -71,6 +72,7 @@ body {
   margin-top: 40px;
 }
 .container > footer {
+  align-self: flex-end;
   text-align: right;
   font-size: calc(1rem - 0.3dvh);
   a {
@@ -97,6 +99,7 @@ body {
     font-family: waytoon;
     font-size: calc(4rem + 2dvw);
     aspect-ratio: 1 / 1;
+    width: min(120px, 30dvw);
     display: flex;
     justify-content: center;
     align-items: center;
