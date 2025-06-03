@@ -102,6 +102,7 @@ function init() {
     name1 = document.querySelector('input[name="player1"]').value;
     name2 = document.querySelector('input[name="player2"]').value;
     game = gamePlay(name1, name2);
+    screenControler(game);
   });
 
   newGameBtn.addEventListener("click", () => {
@@ -111,14 +112,22 @@ function init() {
   });
 
   rematchBtn.addEventListener("click", () => {
-    game = gamePlay(name2, name1);
+    const rev1 = game.getPlayer1();
+    const rev2 = game.getPlayer2();
+    game = gamePlay(rev2.name, rev1.name);
+    screenControler(game);
+    console.log(game.getActivePlayer());
   });
 }
 
 // UI
 
-function screenControler(){
-  console.log(game.getActivePlayer())
+function screenControler(object){
+  const displayMsg = document.querySelector("#display-message");
+  const player1 = object.getPlayer1();
+  const player2 = object.getPlayer2();
+
+  displayMsg.textContent = `${player1.name} vs. ${player2.name}`;
 }
 
 init();
