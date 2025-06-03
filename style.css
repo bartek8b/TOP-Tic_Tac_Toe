@@ -123,7 +123,7 @@ dialog {
   );
   font-family: "playgrum";
   font-size: var(--fontSizeHeaderDialog);
-  width: min(100%, 500px);
+  width: min(100%, 600px);
   border: 3px solid var(--fontColor);
   border-radius: 16px;
 }

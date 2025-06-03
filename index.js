@@ -89,27 +89,31 @@ function gamePlay(name1, name2) {
 function init() {
   const dialog = document.querySelector("dialog");
   const submitBtn = document.querySelector("#submit");
+  const newGameBtn = document.querySelector("#new-game");
+  const rematchBtn = document.querySelector("#rematch");
+
   dialog.showModal();
 
   let game;
+  let name1;
+  let name2;
 
   submitBtn.addEventListener("click", () => {
-    let player1 = document.querySelector('input[name="player1"]').value;
-    let player2 = document.querySelector('input[name="player2"]').value;
-    game = gamePlay(player1, player2);
+    name1 = document.querySelector('input[name="player1"]').value;
+    name2 = document.querySelector('input[name="player2"]').value;
+    game = gamePlay(name1, name2);
+  });
 
-    //DOTAD STESTOWANY
-    console.log(game.getBoard());
-    console.log(game.getActivePlayer());
-    console.log(game.getPlayer1());
-    console.log(game.getPlayer2());
-    console.log(game.playRound);
+  newGameBtn.addEventListener("click", () => {
+    init();
+  });
+
+  rematchBtn.addEventListener("click", () => {
+    game = gamePlay(name2, name1);
   });
 }
 
 // UI
-
-
 
 init();
 
