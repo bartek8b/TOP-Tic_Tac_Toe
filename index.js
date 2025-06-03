@@ -137,6 +137,8 @@ function createGrid(n){
   for(let i = 0; i < n; i++){
     const cell = document.createElement("button");
     cell.setAttribute("data-id", i);
+    cell.classList.add("cell");
+    cell.classList.add("available");
     container.appendChild(cell);
   }
 }

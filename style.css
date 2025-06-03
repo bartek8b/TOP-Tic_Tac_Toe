@@ -104,13 +104,16 @@ body {
     justify-content: center;
     align-items: center;
     background: transparent;
-    cursor: pointer;
-    &:hover {
-      outline: 2px solid var(--fontColor);
-    }
+    
     /* transform: translateY(50%);
     opacity: 0; */
   }
+}
+.available{
+  cursor: pointer;
+    &:hover {
+      outline: 2px solid var(--fontColor);
+    }
 }
 dialog {
   position: fixed;
