@@ -106,6 +106,8 @@ function init() {
 
   newGameBtn.addEventListener("click", () => {
     init();
+    document.querySelector('input[name="player1"]').value = "";
+    document.querySelector('input[name="player2"]').value = "";
   });
 
   rematchBtn.addEventListener("click", () => {
@@ -114,6 +116,10 @@ function init() {
 }
 
 // UI
+
+function screenControler(){
+  console.log(game.getActivePlayer())
+}
 
 init();
 
