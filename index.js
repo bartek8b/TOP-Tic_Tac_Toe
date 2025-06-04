@@ -152,6 +152,7 @@ function init() {
       game.playRound(id);
       cell.classList.remove("available");
       screenInfo(game);
+      updateGrid(game);
       // console.log(game.getBoard());
     } catch (error) {
       console.error("error", error.message);
@@ -198,6 +199,16 @@ function createGrid(n) {
     cell.classList.add("available");
     container.appendChild(cell);
   }
+}
+
+function updateGrid(object){
+  const board = object.getBoard();
+  const cells = document.querySelectorAll(".cell")
+
+  cells.forEach(cell => {
+    const dataId = cell.getAttribute("data-id");
+    cell.textContent = board[dataId];
+  })
 }
 
 init();
