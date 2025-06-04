@@ -1,19 +1,11 @@
 body {
-  min-height: 100dvh;
-  min-width: 100%;
-  background: radial-gradient(
-      ellipse at bottom,
-      var(--accentLight),
-      transparent
-    ),
-    radial-gradient(ellipse, var(--accentDark), transparent);
-  background-attachment: fixed;
+  background: var(--accentLight);
   color: var(--fontColor);
   -webkit-tap-highlight-color: transparent;
+  cursor: default;
 }
 *::selection {
-  background-color: var(--accentDark);
-  color: var(--accentLight);
+  background-color: transparent;
 }
 :root {
   --accentDark: #c49c75;
@@ -31,8 +23,8 @@ body {
 }
 
 .container {
-  min-width: inherit;
-  min-height: inherit;
+  min-height: 100dvh;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -57,7 +49,7 @@ body {
     color: var(--fontColor);
     font-size: calc(1rem + 1dvw);
     margin-inline: 8px;
-    margin-block: 8px;
+    margin-block: 32px;
     padding: 8px;
     cursor: pointer;
     width: fit-content;
@@ -69,7 +61,10 @@ body {
 }
 #display-message {
   font-size: calc(1.5rem + 1.5dvw);
-  margin-top: 40px;
+  span{
+    font-size: inherit;
+    border-bottom: 3px solid var(--fontColor);
+  }
 }
 .container > footer {
   align-self: flex-end;
@@ -103,14 +98,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: transparent;
+    background: linear-gradient(135deg, var(--accentLight), var(--accentDark));
     
     /* transform: translateY(50%);
     opacity: 0; */
   }
 }
 .available{
-  cursor: pointer;
+  cursor: crosshair;
     &:hover {
       outline: 2px solid var(--fontColor);
     }
@@ -183,3 +178,15 @@ form {
   );
   /* opacity: 0.99; */
 }
+
+/* @keyframes bounce {
+  0%{
+    transform: scale(90%);
+  }
+  50%{
+    transform: scale(110%);
+  }
+  100%{
+    transform: scale(100%);
+  }
+} */

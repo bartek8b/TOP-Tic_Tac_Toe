@@ -145,6 +145,7 @@ function init() {
       const id = cell.getAttribute("data-id");
       game.playRound(id);
       cell.classList.remove("available");
+      screenInfo(game);
       // console.log(game.getBoard());
     } catch (error) {
       console.error("error", error.message);
@@ -160,8 +161,11 @@ function screenInfo(object) {
   const displayMsg = document.querySelector("#display-message");
   const player1 = object.getPlayer1();
   const player2 = object.getPlayer2();
+  const activePlayer = object.getActivePlayer();
 
-  displayMsg.textContent = `${player1.name} vs. ${player2.name}`;
+  activePlayer.marker === "o"
+    ? (displayMsg.innerHTML = `<span>${player1.name}</span> vs. ${player2.name}`)
+    : (displayMsg.innerHTML = `${player1.name} vs. <span>${player2.name}</span>`);
 }
 
 function createGrid(n) {
