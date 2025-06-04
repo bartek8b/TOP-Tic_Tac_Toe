@@ -97,12 +97,22 @@ function gamePlay(name1, name2) {
       } else {
         winningCombo = winner;
         // WINNER !!!
-        console.log(`The winner is ${activePlayer.name}, winning combo ${winningCombo}!!`);
+        console.log(
+          `The winner is ${activePlayer.name}, winning combo ${winningCombo}!!`
+        );
       }
     }
   };
 
-  return { playRound, getBoard, getActivePlayer, getPlayer1, getPlayer2, getWinningCombo, isDraw };
+  return {
+    playRound,
+    getBoard,
+    getActivePlayer,
+    getPlayer1,
+    getPlayer2,
+    getWinningCombo,
+    isDraw,
+  };
 }
 
 // INIT
@@ -126,6 +136,7 @@ function init() {
     game = gamePlay(name1, name2);
     createGrid(9);
     screenInfo(game);
+    grid.addEventListener("click", shot);
   });
 
   newGameBtn.addEventListener("click", () => {
@@ -140,6 +151,7 @@ function init() {
     game = gamePlay(rev2.name, rev1.name);
     createGrid(9);
     screenInfo(game);
+    grid.addEventListener("click", shot);
   });
 
   const shot = (event) => {
@@ -153,13 +165,20 @@ function init() {
       cell.classList.remove("available");
       screenInfo(game);
       updateGrid(game);
-      // console.log(game.getBoard());
     } catch (error) {
       console.error("error", error.message);
     }
-  };
 
-  grid.addEventListener("click", shot);
+    const isWinner = game.getWinningCombo();
+    const isDraw = game.isDraw();
+    const cells = document.querySelectorAll(".cell");
+    if (isWinner || isDraw) {
+      grid.removeEventListener("click", shot);
+      cells.forEach((cell) => {
+        cell.classList.remove("available");
+      });
+    }
+  };
 }
 
 // U I
@@ -170,23 +189,20 @@ function screenInfo(object) {
   const player2 = object.getPlayer2();
   const activePlayer = object.getActivePlayer();
   const winningCombo = object.getWinningCombo();
-  const draw = object.isDraw();  
+  const draw = object.isDraw();
 
-  if(!winningCombo && !draw){
+  if (!winningCombo && !draw) {
     displayMsg.classList.remove("bounce");
     activePlayer.marker === "o"
-    ? (displayMsg.innerHTML = `<span>${player1.name}</span> vs. ${player2.name}`)
-    : (displayMsg.innerHTML = `${player1.name} vs. <span>${player2.name}</span>`);
-  }
-  else if(winningCombo){
+      ? (displayMsg.innerHTML = `<span>${player1.name}</span> vs. ${player2.name}`)
+      : (displayMsg.innerHTML = `${player1.name} vs. <span>${player2.name}</span>`);
+  } else if (winningCombo) {
     displayMsg.textContent = `The winner is ${activePlayer.name}!`;
     displayMsg.classList.add("bounce");
-  }
-  else if(draw){
+  } else if (draw) {
     displayMsg.textContent = `draw!`;
     displayMsg.classList.add("bounce");
   }
-  
 }
 
 function createGrid(n) {
@@ -201,14 +217,14 @@ function createGrid(n) {
   }
 }
 
-function updateGrid(object){
+function updateGrid(object) {
   const board = object.getBoard();
-  const cells = document.querySelectorAll(".cell")
+  const cells = document.querySelectorAll(".cell");
 
-  cells.forEach(cell => {
+  cells.forEach((cell) => {
     const dataId = cell.getAttribute("data-id");
     cell.textContent = board[dataId];
-  })
+  });
 }
 
 init();
