@@ -137,11 +137,18 @@ function init() {
   });
 
   const shot = (event) => {
-    const cell = event.target.closest(".available");
-    const id = cell.getAttribute("data-id");
-    game.playRound(id);
-    cell.classList.remove("available");
-    console.log(game.getBoard());
+    try {
+      const cell = event.target.closest(".available");
+      if (!cell) {
+        throw new Error("Cell taken");
+      }
+      const id = cell.getAttribute("data-id");
+      game.playRound(id);
+      cell.classList.remove("available");
+      // console.log(game.getBoard());
+    } catch (error) {
+      console.error("error", error.message);
+    }
   };
 
   grid.addEventListener("click", shot);
@@ -163,6 +170,7 @@ function createGrid(n) {
   for (let i = 0; i < n; i++) {
     const cell = document.createElement("button");
     cell.setAttribute("data-id", i);
+    cell.classList.add("cell");
     cell.classList.add("available");
     container.appendChild(cell);
   }
