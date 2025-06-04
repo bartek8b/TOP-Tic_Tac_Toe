@@ -11,7 +11,7 @@ body {
   --accentDark: #c49c75;
   --accentLight: #d5b998;
   --fontColor: hsl(0, 0%, 15%);
-  --fontSizeHeaderDialog: calc(1.2rem + 1.5dvw);
+  --fontSizeHeaderDialog: calc(1.3rem + 1dvw);
 }
 @font-face {
   font-family: "playgrum";
@@ -35,9 +35,6 @@ body {
   padding: 3dvh;
   font-size: var(--fontSizeHeaderDialog);
   font-family: "playgrum";
-  span {
-    font-size: calc(1rem + 1.5dvw);
-  }
   button {
     background: radial-gradient(
       var(--accentLight),
@@ -47,7 +44,6 @@ body {
     border: 1px solid var(--fontColor);
     border-radius: 4px;
     color: var(--fontColor);
-    font-size: calc(1rem + 1dvw);
     margin-inline: 8px;
     margin-block: 32px;
     padding: 8px;
@@ -59,12 +55,8 @@ body {
     }
   }
 }
-#display-message {
-  font-size: calc(1.5rem + 1.5dvw);
-  span{
-    font-size: inherit;
+#display-message > span {
     border-bottom: 3px solid var(--fontColor);
-  }
 }
 .container > footer {
   align-self: flex-end;
