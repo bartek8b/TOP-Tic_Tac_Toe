@@ -168,10 +168,24 @@ function screenInfo(object) {
   const player1 = object.getPlayer1();
   const player2 = object.getPlayer2();
   const activePlayer = object.getActivePlayer();
+  const winningCombo = object.getWinningCombo();
+  const draw = object.isDraw();  
 
-  activePlayer.marker === "o"
+  if(!winningCombo && !draw){
+    displayMsg.classList.remove("bounce");
+    activePlayer.marker === "o"
     ? (displayMsg.innerHTML = `<span>${player1.name}</span> vs. ${player2.name}`)
     : (displayMsg.innerHTML = `${player1.name} vs. <span>${player2.name}</span>`);
+  }
+  else if(winningCombo){
+    displayMsg.textContent = `The winner is ${activePlayer.name}!`;
+    displayMsg.classList.add("bounce");
+  }
+  else if(draw){
+    displayMsg.textContent = `draw!`;
+    displayMsg.classList.add("bounce");
+  }
+  
 }
 
 function createGrid(n) {
