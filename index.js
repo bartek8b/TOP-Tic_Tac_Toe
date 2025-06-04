@@ -69,11 +69,15 @@ function gamePlay(name1, name2) {
   let player1 = createPlayer(name1, "o");
   let player2 = createPlayer(name2, "x");
   let activePlayer = player1;
+  let winningCombo = null;
+  let draw = false;
 
   const getBoard = () => [...gameBoard];
   const getActivePlayer = () => activePlayer;
   const getPlayer1 = () => player1;
   const getPlayer2 = () => player2;
+  const getWinningCombo = () => winningCombo;
+  const isDraw = () => draw;
 
   const playRound = (index) => {
     if (!gameBoard[index]) {
@@ -82,21 +86,23 @@ function gamePlay(name1, name2) {
       const winner = checkWinner(gameBoard, activePlayer);
       if (!winner) {
         if (!gameBoard.includes(null)) {
-          // REMIS !!!
-          console.log(`DRAW !!`);
+          draw = true;
+          // DRAW !!!
+          console.log(`The draw is ${draw}`);
         } else {
           activePlayer === player1
             ? (activePlayer = player2)
             : (activePlayer = player1);
         }
       } else {
+        winningCombo = winner;
         // WINNER !!!
-        console.log(`The winner is ${activePlayer.name}!!`);
+        console.log(`The winner is ${activePlayer.name}, winning combo ${winningCombo}!!`);
       }
     }
   };
 
-  return { playRound, getBoard, getActivePlayer, getPlayer1, getPlayer2 };
+  return { playRound, getBoard, getActivePlayer, getPlayer1, getPlayer2, getWinningCombo, isDraw };
 }
 
 // INIT
