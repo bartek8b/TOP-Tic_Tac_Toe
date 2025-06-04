@@ -11,7 +11,7 @@ body {
   --accentDark: #c49c75;
   --accentLight: #d5b998;
   --fontColor: hsl(0, 0%, 15%);
-  --fontSizeHeaderDialog: calc(1.3rem + 1dvw);
+  --fontSizeHeaderDialog: calc(1.1rem + 1dvw);
 }
 @font-face {
   font-family: "playgrum";
