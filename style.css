@@ -8,19 +8,19 @@ body {
   background-color: transparent;
 }
 :root {
-  --accentDark: #c49c75;
-  --accentLight: #d5b998;
+  --accentDark: hsl(30, 40%, 61%);
+  --accentLight: hsl(32, 42%, 72%);
   --fontColor: hsl(0, 0%, 15%);
   --fontSizeHeaderDialog: calc(1.1rem + 1dvw);
 }
 /* OPTIONAL DARK MODE */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --accentDark: #2B35AF;
-    --accentLight: #000435;
-    --fontColor: hsl(0, 0%, 75%);
+    --accentDark: hsl(214, 60%, 20%);
+    --accentLight: hsl(222, 42%, 11%);
+    --fontColor: hsl(30, 40%, 61%);
   }
-} */
+}
 @font-face {
   font-family: "playgrum";
   src: url(font/playgum.regular.otf);
