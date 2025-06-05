@@ -9,58 +9,27 @@ function createBoard() {
   return gameBoard;
 }
 
-function checkWinner(array, object) {
-  if (
-    array[0] === object.marker &&
-    array[1] === object.marker &&
-    array[2] === object.marker
-  ) {
-    return [0, 1, 2];
-  } else if (
-    array[3] === object.marker &&
-    array[4] === object.marker &&
-    array[5] === object.marker
-  ) {
-    return [3, 4, 5];
-  } else if (
-    array[6] === object.marker &&
-    array[7] === object.marker &&
-    array[8] === object.marker
-  ) {
-    return [6, 7, 8];
-  } else if (
-    array[0] === object.marker &&
-    array[3] === object.marker &&
-    array[6] === object.marker
-  ) {
-    return [0, 3, 6];
-  } else if (
-    array[1] === object.marker &&
-    array[4] === object.marker &&
-    array[7] === object.marker
-  ) {
-    return [1, 4, 7];
-  } else if (
-    array[2] === object.marker &&
-    array[5] === object.marker &&
-    array[8] === object.marker
-  ) {
-    return [2, 5, 8];
-  } else if (
-    array[0] === object.marker &&
-    array[4] === object.marker &&
-    array[8] === object.marker
-  ) {
-    return [0, 4, 8];
-  } else if (
-    array[2] === object.marker &&
-    array[4] === object.marker &&
-    array[6] === object.marker
-  ) {
-    return [2, 4, 6];
-  } else {
-    return false;
+function checkWinner(array, player) {
+  const combinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  for(const combo of combinations){
+    const [first, second, third] = combo;
+    if(array[first] === player.marker && array[second] === player.marker && array[third] === player.marker){
+      // WINNER CHECKED !!
+      console.log(combo);
+      return combo;
+    }
   }
+  return null;
 }
 
 function gamePlay(name1, name2) {
