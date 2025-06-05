@@ -1,5 +1,5 @@
 body {
-  background: var(--accentLight);
+  background: radial-gradient(var(--accentDark) 90%, var(--accentLight));
   color: var(--fontColor);
   -webkit-tap-highlight-color: transparent;
   cursor: default;
@@ -16,9 +16,9 @@ body {
 /* OPTIONAL DARK MODE */
 @media (prefers-color-scheme: dark) {
   :root {
-    --accentDark: hsl(214, 60%, 20%);
-    --accentLight: hsl(222, 42%, 11%);
-    --fontColor: hsl(30, 40%, 61%);
+    --accentDark: hsl(222, 42%, 11%);
+    --accentLight: hsl(214, 60%, 20%);
+    --fontColor: hsl(0, 0%, 60%);
   }
 }
 @font-face {
@@ -99,9 +99,6 @@ body {
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, var(--accentLight), var(--accentDark));
-
-    /* transform: translateY(50%);
-    opacity: 0; */
   }
 }
 .available {
@@ -205,7 +202,8 @@ form {
   }
   50% {
     outline: 3px solid var(--accentDark);
-    transform: scale(99%);
+    transform: scale(98%);
+    opacity: 50%;
   }
   100% {
     outline: 3px solid var(--fontColor);
