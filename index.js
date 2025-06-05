@@ -220,10 +220,15 @@ function createGrid(n) {
 function updateGrid(object) {
   const board = object.getBoard();
   const cells = document.querySelectorAll(".cell");
+  const draw = object.isDraw();
 
   cells.forEach((cell) => {
     const dataId = cell.getAttribute("data-id");
     cell.textContent = board[dataId];
+
+    if(draw){
+      cell.classList.add("blink");
+    }
   });
 }
 

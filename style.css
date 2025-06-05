@@ -172,7 +172,10 @@ form {
 }
 
 .bounce{
-  animation: bounce 2s ease-in-out infinite;
+  animation: bounce 2s ease-in-out infinite forwards;
+}
+.blink{
+  animation: blink 2s ease-in-out infinite;
 }
 
 @keyframes bounce {
@@ -184,5 +187,17 @@ form {
   }
   100%{
     transform: scale(100%);
+  }
+}
+
+@keyframes blink {
+  0%{
+    outline: 3px solid var(--fontColor);
+  }
+  50%{
+    outline: 3px solid var(--accentDark);
+  }
+  100%{
+    outline: 3px solid var(--fontColor);
   }
 }
