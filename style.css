@@ -1,5 +1,5 @@
 body {
-  background: radial-gradient(var(--accentDark) 90%, var(--accentLight));
+  background: radial-gradient(var(--accentLight) 90%, var(--accentDark));
   color: var(--fontColor);
   -webkit-tap-highlight-color: transparent;
   cursor: default;
