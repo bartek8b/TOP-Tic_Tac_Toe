@@ -4,10 +4,12 @@ Tic Tac Toe game, made as a training after Factory Functions and the Module Patt
 
 ### [Live preview](https://bartek8b.github.io/zzz-odin-tic_tac_toe/)
 
+The app has a built-in dark mode that launches according to your default color scheme.
+
 ### Challenges
 
 - avoid variables in global scope
 - make as much as possible through the factories
 - divide handling game engine from UI handling
 - taking user's input and pass it the right way through the program
-
+- iterting through arrays of arrays
