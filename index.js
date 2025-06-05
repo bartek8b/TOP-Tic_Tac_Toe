@@ -4,10 +4,16 @@ function createPlayer(name, marker) {
   return { name, marker };
 }
 
-function createBoard() {
-  const gameBoard = [null, null, null, null, null, null, null, null, null];
+function createBoard(n) {
+  const gameBoard = [];
+
+  for(let i = 0; i < n; i++){
+    gameBoard.push(null);
+  }
   return gameBoard;
 }
+
+  // const gameBoard = [null, null, null, null, null, null, null, null, null];
 
 function checkWinner(array, player) {
   const combinations = [
@@ -33,7 +39,7 @@ function checkWinner(array, player) {
 }
 
 function gamePlay(name1, name2) {
-  const gameBoard = createBoard();
+  const gameBoard = createBoard(9);
   let player1 = createPlayer(name1, "o");
   let player2 = createPlayer(name2, "x");
   let activePlayer = player1;
