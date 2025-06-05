@@ -169,7 +169,7 @@ function screenInfo(object) {
       ? (displayMsg.innerHTML = `<span>${player1.name}</span> vs. ${player2.name}`)
       : (displayMsg.innerHTML = `${player1.name} vs. <span>${player2.name}</span>`);
   } else if (winningCombo) {
-    displayMsg.textContent = `The winner is ${activePlayer.name}!`;
+    displayMsg.textContent = `${activePlayer.name} wins!`;
     displayMsg.classList.add("bounce");
   } else if (draw) {
     displayMsg.textContent = `draw!`;
