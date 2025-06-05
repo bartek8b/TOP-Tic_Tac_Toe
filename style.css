@@ -14,13 +14,13 @@ body {
   --fontSizeHeaderDialog: calc(1.1rem + 1dvw);
 }
 /* OPTIONAL DARK MODE */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --accentDark: hsl(222, 42%, 11%);
     --accentLight: hsl(214, 60%, 20%);
     --fontColor: hsl(0, 0%, 60%);
   }
-}
+} */
 @font-face {
   font-family: "playgrum";
   src: url(font/playgum.regular.otf);
