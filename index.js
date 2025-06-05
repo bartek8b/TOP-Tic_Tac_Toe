@@ -13,8 +13,6 @@ function createBoard(n) {
   return gameBoard;
 }
 
-  // const gameBoard = [null, null, null, null, null, null, null, null, null];
-
 function checkWinner(array, player) {
   const combinations = [
     [0, 1, 2],
@@ -155,7 +153,7 @@ function init() {
   };
 }
 
-// U I
+// UI
 
 function screenInfo(object) {
   const displayMsg = document.querySelector("#display-message");
@@ -211,4 +209,5 @@ function updateGrid(object) {
     }
   });
 }
+
 init();
