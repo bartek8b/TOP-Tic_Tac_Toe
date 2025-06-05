@@ -1,8 +1,7 @@
 // FUNCTIONALITY
 
 function createPlayer(name, marker) {
-  const shots = [];
-  return { name, marker, shots };
+  return { name, marker };
 }
 
 function createBoard() {
@@ -80,8 +79,8 @@ function gamePlay(name1, name2) {
   const isDraw = () => draw;
 
   const playRound = (index) => {
+    index = Number(index);
     if (!gameBoard[index]) {
-      activePlayer.shots.push(index);
       gameBoard[index] = activePlayer.marker;
       const winner = checkWinner(gameBoard, activePlayer);
       if (!winner) {
@@ -160,7 +159,7 @@ function init() {
       if (!cell) {
         throw new Error("Cell taken");
       }
-      const id = cell.getAttribute("data-id");
+      const id = Number(cell.getAttribute("data-id"));
       game.playRound(id);
       cell.classList.remove("available");
       screenInfo(game);
@@ -224,24 +223,17 @@ function updateGrid(object) {
   const combo = object.getWinningCombo();
 
   cells.forEach((cell) => {
-    const dataId = cell.getAttribute("data-id");
+    const dataId = Number(cell.getAttribute("data-id"));
     cell.textContent = board[dataId];
-  });
-
-  if (draw) {
-    cells.forEach((cell) => {
+    if (draw) {
       cell.classList.add("blink");
-    });
-  }
-
-  if (combo) {
-    [first, second, third] = combo;
-      cells.forEach((cell) => {
-      const id = Number(cell.getAttribute("data-id"));
-      if (id === first || id === second || id === third) {
+    }
+    if (combo) {
+      [first, second, third] = combo;
+      if (dataId === first || dataId === second || dataId === third) {
         cell.classList.add("blink");
       }
-    });
-  }
+    }
+  });
 }
 init();
