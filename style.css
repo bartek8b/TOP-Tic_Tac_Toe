@@ -92,9 +92,9 @@ body {
     border-radius: 4px;
     color: var(--fontColor);
     font-family: waytoon;
-    font-size: calc(4rem + 2dvw);
+    font-size: calc(3rem + 1dvw);
     aspect-ratio: 1 / 1;
-    width: min(120px, 30dvw);
+    width: min(100px, 30dvw);
     display: flex;
     justify-content: center;
     align-items: center;
