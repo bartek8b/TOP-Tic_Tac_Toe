@@ -196,6 +196,7 @@ form {
   }
   50%{
     outline: 3px solid var(--accentDark);
+    transform: scale(99%);
   }
   100%{
     outline: 3px solid var(--fontColor);

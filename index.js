@@ -221,15 +221,27 @@ function updateGrid(object) {
   const board = object.getBoard();
   const cells = document.querySelectorAll(".cell");
   const draw = object.isDraw();
+  const combo = object.getWinningCombo();
 
   cells.forEach((cell) => {
     const dataId = cell.getAttribute("data-id");
     cell.textContent = board[dataId];
-
-    if(draw){
-      cell.classList.add("blink");
-    }
   });
-}
 
+  if (draw) {
+    cells.forEach((cell) => {
+      cell.classList.add("blink");
+    });
+  }
+
+  if (combo) {
+    [first, second, third] = combo;
+      cells.forEach((cell) => {
+      const id = Number(cell.getAttribute("data-id"));
+      if (id === first || id === second || id === third) {
+        cell.classList.add("blink");
+      }
+    });
+  }
+}
 init();
