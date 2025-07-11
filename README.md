@@ -2,7 +2,7 @@
 
 Tic Tac Toe game, made as a training after Factory Functions and the Module Pattern lessons from [The Odin Project's](https://www.theodinproject.com/) Full Stack JavaScript path.
 
-### [Live preview](https://bartek8b.github.io/zzz-odin-tic_tac_toe/)
+### [Live preview](https://bartek8b.github.io/zzz-tic_tac_toe/)
 
 ### Challenges
 
