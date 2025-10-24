@@ -1,4 +1,4 @@
-## The Odin Project - Tic Tac Toe Game
+### The Odin Project > JavaScript Course > Project: Tic Tac Toe
 
 Tic Tac Toe game, made as a training after Factory Functions and the Module Pattern lessons from [The Odin Project's](https://www.theodinproject.com/) Full Stack JavaScript path.
 
